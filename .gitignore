@@ -1,0 +1,26 @@
+﻿# Compiled programs
+*.exe
+*.o
+*.obj
+
+# Duplicate source archive
+MunicipalComplaintSystem_Final_Source.zip
+
+# Build output
+out/
+build/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Editor and operating system files
+.vscode/
+.vs/
+Thumbs.db
+.DS_Store
+
+# Secrets and local environment settings
+.env
+.env.*
+!.env.example

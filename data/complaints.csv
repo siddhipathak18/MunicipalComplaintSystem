@@ -1,0 +1,5 @@
+﻿id,name,phone,category,description,location,priority,date_time,status
+1001,Demo Citizen 1,REDACTED,Drainage,Water is overflowing near the demo colony entrance,Demo Area A,High,06-10-2026 09:30,Pending
+1002,Demo Citizen 2,REDACTED,Street Light,Street light is not working near the demo crossing,Demo Area B,Medium,06-10-2026 11:15,In Progress
+1003,Demo Citizen 3,REDACTED,Garbage,Garbage collection is delayed in the demo area,Demo Area C,Low,05-10-2026 16:45,Resolved
+1004,Demo Citizen 4,REDACTED,Road Damage,Pothole reported on the demo road,Demo Area D,Medium,28-10-2026 11:25,In Progress

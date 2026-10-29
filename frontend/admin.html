@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Municipal Complaint System</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>🏛️ Municipal Corporation</h1>
+            <p>Admin Dashboard</p>
+        </div>
+        <div class="nav-links">
+            <a href="/" class="nav-link">Citizen Portal</a>
+            <span class="nav-link admin-badge">👤 Municipal Officer</span>
+        </div>
+    </nav>
+
+    <div class="container admin-container">
+        <h2 class="admin-title">📊 Complaint Dashboard</h2>
+
+        <!-- Summary Cards -->
+        <div class="stat-cards">
+            <div class="stat-card stat-total">
+                <h3 id="totalCount">0</h3>
+                <p>Total Complaints</p>
+            </div>
+            <div class="stat-card stat-pending">
+                <h3 id="pendingCount">0</h3>
+                <p>Pending</p>
+            </div>
+            <div class="stat-card stat-progress">
+                <h3 id="progressCount">0</h3>
+                <p>In Progress</p>
+            </div>
+            <div class="stat-card stat-resolved">
+                <h3 id="resolvedCount">0</h3>
+                <p>Resolved</p>
+            </div>
+        </div>
+
+        <!-- Controls (Search and Filters) -->
+        <div class="admin-controls">
+            <div class="filter-bar">
+                <div class="filter-item search-item">
+                    <label for="adminSearch">Search Complaints</label>
+                    <input type="text" id="adminSearch" placeholder="Search by ID, citizen name, category, location..." oninput="applyFilters()">
+                </div>
+                <div class="filter-item">
+                    <label for="filterStatus">Status</label>
+                    <select id="filterStatus" onchange="applyFilters()">
+                        <option value="All">All Statuses</option>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label for="filterCategory">Category</label>
+                    <select id="filterCategory" onchange="applyFilters()">
+                        <option value="All">All Categories</option>
+                        <option value="Road Damage">Road Damage</option>
+                        <option value="Garbage">Garbage</option>
+                        <option value="Water Supply">Water Supply</option>
+                        <option value="Street Light">Street Light</option>
+                        <option value="Drainage">Drainage</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="filter-buttons">
+                    <button onclick="resetFilters()" class="btn-reset" title="Reset search and filters">Reset</button>
+                    <button onclick="loadAdminComplaints()" class="btn-refresh">🔄 Refresh</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Complaints Table -->
+        <div class="table-wrapper">
+            <table class="complaint-table">
+                <thead>
+                    <tr>
+                        <th>Complaint ID</th>
+                        <th>Citizen</th>
+                        <th>Category</th>
+                        <th>Location</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Date &amp; Time</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="complaintsTableBody">
+                    <tr>
+                        <td colspan="9" style="text-align:center; padding:40px; color:#999;">Loading complaints...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Municipal Corporation - Admin Dashboard</p>
+        <p>Software Engineering Mini Project</p>
+    </footer>
+
+    <script src="/script.js"></script>
+    <script>
+        // Load complaints when admin page loads
+        document.addEventListener('DOMContentLoaded', loadAdminComplaints);
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipal Complaint Management System</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1>🏛️ Municipal Corporation</h1>
+            <p>Complaint Management System</p>
+        </div>
+        <div class="nav-links">
+            <a href="#" onclick="showSection('home')" class="nav-link active">Home</a>
+            <a href="#" onclick="showSection('submit')" class="nav-link">Submit Complaint</a>
+            <a href="#" onclick="showSection('track')" class="nav-link">Track Complaint</a>
+            <a href="/admin" class="nav-link">Admin</a>
+        </div>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <div id="home" class="section active">
+        <div class="hero">
+            <h2>Report. Track. Resolve.</h2>
+            <p>Submit civic complaints and track their resolution status easily.</p>
+            <button onclick="showSection('submit')" class="hero-btn">Submit a Complaint</button>
+        </div>
+        <!-- Quick info cards -->
+        <div class="container">
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-icon">📝</div>
+                    <h3>Submit</h3>
+                    <p>File your civic complaint with details about the issue.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🔍</div>
+                    <h3>Track</h3>
+                    <p>Use your Complaint ID to check real-time status updates.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">✅</div>
+                    <h3>Resolve</h3>
+                    <p>Municipal officers review and resolve your complaints.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBMIT COMPLAINT SECTION -->
+    <div id="submit" class="section">
+        <div class="container">
+            <div class="form-card">
+                <h2>📝 Submit a Complaint</h2>
+                <p class="form-subtitle">Fill in the details below to register your complaint.</p>
+
+                <form id="complaintForm" onsubmit="submitComplaint(event)">
+                    <div class="form-group">
+                        <label for="name">Citizen Name *</label>
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="text" id="phone" placeholder="Enter your phone number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Complaint Category *</label>
+                        <select id="category" required>
+                            <option value="">-- Select Category --</option>
+                            <option value="Road Damage">Road Damage</option>
+                            <option value="Garbage">Garbage</option>
+                            <option value="Water Supply">Water Supply</option>
+                            <option value="Street Light">Street Light</option>
+                            <option value="Drainage">Drainage</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" rows="4" placeholder="Describe your complaint in detail" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location *</label>
+                        <input type="text" id="location" placeholder="Enter the location of the issue" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priority">Priority *</label>
+                        <select id="priority" required>
+                            <option value="Low">Low</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Complaint</button>
+                </form>
+
+                <!-- Success Message (hidden by default) -->
+                <div id="successMessage" class="success-card" style="display:none;">
+                    <h3>✅ Complaint Submitted Successfully!</h3>
+                    <p>Your Complaint ID:</p>
+                    <div class="complaint-id" id="generatedId">CMP1001</div>
+                    <p>Please save this ID to track your complaint.</p>
+                    <button onclick="showSection('track')" class="btn-track">Track My Complaint</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRACK COMPLAINT SECTION -->
+    <div id="track" class="section">
+        <div class="container">
+            <div class="form-card">
+                <h2>🔍 Track Your Complaint</h2>
+                <p class="form-subtitle">Enter your Complaint ID to check the current status.</p>
+
+                <div class="track-form">
+                    <div class="form-group">
+                        <label for="trackId">Complaint ID</label>
+                        <input type="text" id="trackId" placeholder="e.g. CMP1001">
+                    </div>
+                    <button onclick="trackComplaint()" class="btn-submit">Track Complaint</button>
+                </div>
+
+                <!-- Track Result (hidden by default) -->
+                <div id="trackResult" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Municipal Corporation - Complaint Management System</p>
+        <p>Software Engineering Mini Project</p>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>
